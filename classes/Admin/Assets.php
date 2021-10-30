@@ -57,6 +57,9 @@ class PUM_Admin_Assets {
 	 * Load Admin Scripts
 	 */
 	public static function register_admin_scripts() {
+		
+		// Dequeue mediclinic theme's select2 on to remove conflict.
+        wp_dequeue_script( 'mkdf-select2-script' );        
 
 		$admin_vars = apply_filters( 'pum_admin_vars', apply_filters( 'pum_admin_var', array(
 			'post_id'          => ! empty( $_GET['post'] ) ? intval( $_GET['post'] ) : null,
@@ -201,3 +204,4 @@ class PUM_Admin_Assets {
 	}
 
 }
+
